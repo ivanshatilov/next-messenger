@@ -23,10 +23,10 @@ const AuthSocialButton: React.FC<AuthSocialButtonProps> = ({
         p-3
         text-white
         shadow-sm
-        hover:bg-blue-950
+        
         text-3xl
         `,
-        disabled && "opacity-50 cursor-default")}>
+        disabled ? "opacity-50 cursor-default" : "hover:bg-blue-950")}>
             <Icon />
         </button>
      );

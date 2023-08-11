@@ -36,10 +36,13 @@ const Button: React.FC<ButtonProps> = ({
         focus-visible:outline-offset-2
         `,
         fullWidth && "w-full",
-        disabled && "opacity-50 cursor-default hover:",
-        danger && "text-white bg-rose-500 hover:bg-rose-600 focus-visible:outline-rose-600",
-        secondary ? "text-gray-900 bg-lime-400 hover:bg-lime-500 focus-visible:outline-lime-400" : "text-white",
-        !secondary && !danger && "bg-sky-500 hover:bg-sky-600 focus-visible:outline-sky-600",
+        disabled && "opacity-50 cursor-default",
+        danger && "text-white bg-rose-500 focus-visible:outline-rose-600",
+        danger && !disabled && "text-white bg-rose-500 hover:bg-rose-600 focus-visible:outline-rose-600",
+        secondary && "text-gray-900 bg-lime-400 focus-visible:outline-lime-400",
+        secondary && !disabled && "text-gray-900 bg-lime-400 hover:bg-lime-500 focus-visible:outline-lime-400",
+        !secondary && !danger && "bg-sky-500 focus-visible:outline-sky-600 text-white",
+        !secondary && !danger && !disabled && "bg-sky-500 hover:bg-sky-600 focus-visible:outline-sky-600 text-white",
         )}>
             {children}
         </button>

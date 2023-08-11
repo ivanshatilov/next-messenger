@@ -24,8 +24,8 @@ const Input: React.FC<InputProps> = ({
 }) => {
     return (
         <div>
-            <label className={clsx(`inline-block text-sm font-medium leading-6 text-gray-900`, disabled && "text-gray-400")} htmlFor={id}>{label}</label>
-            <div className="mt-2">
+            <label className={clsx(`inline-block text-sm font-medium leading-6`, disabled ? "text-gray-400" : "text-gray-900")} htmlFor={id}>{label}</label>
+            <div className="mt-1">
                 <input id={id} type={type} disabled={disabled} {...register(id, { required })} 
                 className={clsx(`
                 form-input

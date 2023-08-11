@@ -49,7 +49,7 @@ const AuthForm = () => {
     return ( 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
             <div className="bg-white px-4 pt-4 pb-8 shadow-md sm:rounded-lg sm:px-10">
-                <h2 className="m-8 text-3xl text-center tracking-tighter text-gray-900 font-bold">Sign in to your account</h2>
+                <h2 className="my-6 text-3xl text-left text-gray-700 font-bold">Sign in to your account</h2>
                 <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
                     {variant === 'REGISTER' && (
                         <Input id="name" label="Name" register={register} errors={errors} disabled={isLoading}/>
@@ -65,22 +65,22 @@ const AuthForm = () => {
                                 <div className="w-full border-t border-gray-300"></div>
                             </div>
                             <div className="relative flex justify-center text-center">
-                                <span className="bg-white px-3 text-gray-500 text-sm">Or continue with</span>
+                                <span className="bg-white px-3 text-gray-400 text-sm">Or continue with</span>
                             </div>
                         </div>
                     </div>
 
                     <div className="mt-6 flex gap-7 justify-center">
-                        <AuthSocialButton icon={BsGithub} onClick={() => socialAction('github')}/>
-                        <AuthSocialButton icon={BsGoogle} onClick={() => socialAction('google')}/>
-                        <AuthSocialButton icon={BsFacebook} onClick={() => socialAction('facebook')}/>
+                        <AuthSocialButton icon={BsGithub} onClick={() => socialAction('github')} disabled={isLoading}/>
+                        <AuthSocialButton icon={BsGoogle} onClick={() => socialAction('google')}  disabled={isLoading}/>
+                        <AuthSocialButton icon={BsFacebook} onClick={() => socialAction('facebook')}  disabled={isLoading}/>
                     </div>
 
-                    <div className="flex gap-2 justify-center text-sm mt-6 px-2 text-gray-500">
+                    <div className="flex gap-2 justify-center text-sm mt-6 px-2 text-gray-400">
                         <div>
                             {variant === 'LOGIN' ? "New to Messenger?" : "Already have an account?"}
                         </div>
-                        <span className="cursor-pointer underline" onClick={toggleVariant}>
+                        <span className="cursor-pointer hover:underline" onClick={toggleVariant}>
                             {variant === 'LOGIN' ? "Create an account" : "Login"}
                         </span>
                     </div>
