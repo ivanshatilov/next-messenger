@@ -5,7 +5,7 @@ import { IconType } from "react-icons";
 
 interface AuthSocialButtonProps {
     icon: IconType,
-    onClick: () => void,
+    onClick?: () => void,
     disabled?: boolean,
 
 }
