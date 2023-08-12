@@ -49,9 +49,10 @@ const AuthForm = () => {
 
         if(variant === 'REGISTER') {
             axios.post('/api/register', data)
-            .then(() => signIn('credentials', data))
+            .then(() => signIn('credentials', {...data, redirect: false}))  
             .catch(() => toast.update(signInToast, { render: "Error", type: "error", isLoading: false,  closeButton: true, autoClose: 5000, hideProgressBar: true}))
             .finally(() => setIsLoading(false))
+            
         }
         else {
             signIn('credentials', {
@@ -99,10 +100,10 @@ const AuthForm = () => {
                 <h2 className="my-6 text-3xl text-left text-gray-700 font-bold">Sign in to your account</h2>
                 <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
                     {variant === 'REGISTER' && (
-                        <Input id="name" label="Name" register={register} errors={errors} disabled={isLoading}/>
+                        <Input id="name" label="Name" register={register} errors={errors} disabled={isLoading} required/>
                     )}
-                    <Input id="email" label="Email adress" type="email" register={register} errors={errors}  disabled={isLoading}/>
-                    <Input id="password" label="Password" type="password" register={register} errors={errors}  disabled={isLoading}/>
+                    <Input id="email" label="Email adress" type="email" register={register} errors={errors}  disabled={isLoading} required/>
+                    <Input id="password" label="Password" type="password" register={register} errors={errors}  disabled={isLoading} required/>
 
                     <Button type="submit" disabled={isLoading} fullWidth>{variant === 'LOGIN' ? "Sign in" : "Register"}</Button>
                 </form>
