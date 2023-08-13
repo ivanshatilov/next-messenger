@@ -49,7 +49,12 @@ const AuthForm = () => {
 
         if(variant === 'REGISTER') {
             axios.post('/api/register', data)
-            .then(() => signIn('credentials', {...data, redirect: false}))  
+            .then(() => signIn('credentials', {...data, redirect: false})
+                .then((callback) => {
+                    if(callback?.ok && !callback?.error) {
+                        toast.update(signInToast, { render: "Logged In", type: "success", isLoading: false,  closeButton: true, autoClose: 5000, hideProgressBar: true })
+                    }
+                }))  
             .catch(() => toast.update(signInToast, { render: "Error", type: "error", isLoading: false,  closeButton: true, autoClose: 5000, hideProgressBar: true}))
             .finally(() => setIsLoading(false))
             
