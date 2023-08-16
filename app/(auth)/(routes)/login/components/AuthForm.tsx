@@ -105,9 +105,9 @@ const AuthForm = () => {
                 <h2 className="my-6 text-3xl text-left text-gray-700 font-bold">Sign in to your account</h2>
                 <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
                     {variant === 'REGISTER' && (
-                        <Input id="name" label="Name" register={register} errors={errors} disabled={isLoading} required/>
+                        <Input id="name" label="Username" register={register} errors={errors} disabled={isLoading} required/>
                     )}
-                    <Input id="email" label="Email adress" type="email" register={register} errors={errors}  disabled={isLoading} required/>
+                    <Input id="email" label="Email" type="email" register={register} errors={errors}  disabled={isLoading} required/>
                     <Input id="password" label="Password" type="password" register={register} errors={errors}  disabled={isLoading} required/>
 
                     <Button type="submit" disabled={isLoading} fullWidth>{variant === 'LOGIN' ? "Sign in" : "Register"}</Button>
