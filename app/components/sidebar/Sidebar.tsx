@@ -10,7 +10,7 @@ async function Sidebar({
     return (
         <div className="h-full">
             <MenuSidebar currentUser={currentUser!}/>
-            <main className="sm:pl-32 h-full bg-gray-200">
+            <main className="sm:pl-32 h-full">
                 {children}
             </main>
         </div>
